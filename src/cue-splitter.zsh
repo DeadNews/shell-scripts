@@ -13,5 +13,3 @@ for CUE in "$@"; do
     setopt +o nomatch
     cp "${CUE:h}"/*.{jpg,jpeg,png} ${DIR}
 done
-
-

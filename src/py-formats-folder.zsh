@@ -9,5 +9,3 @@ for H in "$@"; do
 
     for F (**/*.vpy) sed -e "s|# |#|g" -i ${F}
 done
-
-

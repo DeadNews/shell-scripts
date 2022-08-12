@@ -18,5 +18,3 @@ for H in "$@"; do
   for F (**/*.ttf) fonts-ln ${F:a} ${H:t}
   for F (**/*.TTF) fonts-ln ${F:a} ${H:t}
 done
-
-
