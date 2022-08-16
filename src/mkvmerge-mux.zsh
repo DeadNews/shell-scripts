@@ -44,13 +44,13 @@ for F in "$@"; do
         fileTitleED=${fileTitle/#ED/}
         fileTitleS=${fileTitle/#S/}
         fileTitlePart=${fileTitle/#Part/}
-        if [[ "${fileTitle}" != "${fileTitleEP}" ]]; then
+        if [[ ${fileTitle} != "${fileTitleEP}" ]]; then
             flagEP=1
             fileTitleEP=$(printf "%02d" ${fileTitleEP})
             fileTitle=${fileTitleEP}
-        elif [[ "${fileTitle}" != "${fileTitleOP}" ]] || [[ "${fileTitle}" != "${fileTitleED}" ]] || [[ "${fileTitle}" != "${fileTitleS}" ]]; then
+        elif [[ ${fileTitle} != "${fileTitleOP}" ]] || [[ ${fileTitle} != "${fileTitleED}" ]] || [[ ${fileTitle} != "${fileTitleS}" ]]; then
             fileTitle=${title%% *}
-        elif [[ "${fileTitle}" != "${fileTitlePart}" ]]; then
+        elif [[ ${fileTitle} != "${fileTitlePart}" ]]; then
             fileTitle=${title%%:*}
         else
             fileTitle=${title}

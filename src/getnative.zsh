@@ -22,8 +22,8 @@ for F in "$@"; do
     else
         resolution=720
 
-        min=$((${resolution} - 2))
-        max=$((${resolution} + 2))
+        min=$((resolution - 2))
+        max=$((resolution + 2))
         tmp_dir=$(mktemp -d)
 
         getnative ${F} -min ${min} -max ${max} -pf png -dir ${tmp_dir} -k bilinear

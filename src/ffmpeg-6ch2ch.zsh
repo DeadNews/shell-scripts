@@ -7,17 +7,17 @@ for F in "$@"; do
     bit_depth=$(mediainfo --Inform="Audio;%BitDepth%" ${F})
     channel_layout=$(mediainfo --Inform="Audio;%ChannelLayout%" ${F})
 
-    if [[ "${bit_depth}" == '16' ]]; then
+    if [[ ${bit_depth} == '16' ]]; then
         sample_fmt='s16'
         compression_level='12'
-    elif [[ "${bit_depth}" == '24' ]]; then
+    elif [[ ${bit_depth} == '24' ]]; then
         sample_fmt='s32'
         compression_level='8'
     fi
 
-    if [[ "${channel_layout}" == 'L R C LFE Ls Rs' ]]; then
+    if [[ ${channel_layout} == 'L R C LFE Ls Rs' ]]; then
         af='pan=stereo|FL = 1.0*FL + 0.707*FC + 0.707*SL|FR = 1.0*FR + 0.707*FC + 0.707*SR'
-    elif [[ "${channel_layout}" == 'L R C LFE Lb Rb' ]]; then
+    elif [[ ${channel_layout} == 'L R C LFE Lb Rb' ]]; then
         af='pan=stereo|FL < 1.0*FL + 0.707*FC + 0.707*BL|FR < 1.0*FR + 0.707*FC + 0.707*BR'
     fi
 

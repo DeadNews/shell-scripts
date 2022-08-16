@@ -6,9 +6,9 @@ for F in "$@"; do
     ((i++ == 0)) && wait
     (
         bit_depth=$(mediainfo --Inform="Audio;%BitDepth%" ${F})
-        if [[ "${bit_depth}" == '16' ]]; then
+        if [[ ${bit_depth} == '16' ]]; then
             sample_fmt='s16'
-        elif [[ "${bit_depth}" == '24' ]]; then
+        elif [[ ${bit_depth} == '24' ]]; then
             sample_fmt='s32'
         else
             sample_fmt='s16'

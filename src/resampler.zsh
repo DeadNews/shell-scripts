@@ -3,17 +3,15 @@ zparseopts -D -make=make
 
 source $(which env_parallel.zsh)
 
-
 function rate-info() {
     # unset ${rate}
     SR=$(mediainfo --Inform="Audio;%SamplingRate%" ${1})
     if [[ ${SR} == 44100 ]]; then
         rate='44100'
-    elif [[ $((${SR} % 48000)) == 0 ]]; then
+    elif [[ $((SR % 48000)) == 0 ]]; then
         rate='48000'
     fi
 }
-
 
 function resampler_func() {
     duration=$(mediainfo --Inform="Audio;%Duration/String3%" ${1})
@@ -28,7 +26,7 @@ function resampler_func() {
 
         duration_out=$(mediainfo --Inform="Audio;%Duration/String3%" ${tmp})
         if [ "${duration_out}" != "${duration}" ]; then
-            echo "${1}: ${duration} VS ${duration_out}" >> "${out_dir}/warnings.log"
+            echo "${1}: ${duration} VS ${duration_out}" >>"${out_dir}/warnings.log"
             ffmpeg -hide_banner -i ${tmp} -t ${duration} -acodec flac -compression_level 12 "${out_dir}/${1:t:r}.flac"
         else
             ffmpeg -hide_banner -i ${tmp} -acodec flac -compression_level 12 "${out_dir}/${1:t:r}.flac"
@@ -59,7 +57,7 @@ function resampler_func() {
 
             duration_out=$(mediainfo --Inform="Audio;%Duration/String3%" ${tmp2})
             if [ "${duration_out}" != "${duration}" ]; then
-                echo "${1}: ${duration} VS ${duration_out}" >> "${out_dir}/warnings.log"
+                echo "${1}: ${duration} VS ${duration_out}" >>"${out_dir}/warnings.log"
                 ffmpeg -hide_banner -i ${tmp2} -t ${duration} -acodec flac -compression_level 12 ${tmp3}
             else
                 ffmpeg -hide_banner -i ${tmp2} -acodec flac -compression_level 12 ${tmp3}
@@ -80,7 +78,6 @@ function resampler_func() {
     fi
 }
 
-
 function make() {
     cd /home/deadnews/my/bin/
     git clone ${1}
@@ -95,7 +92,6 @@ function make() {
     mv ./ReSampler ../ReSamplerLib
     rm -rf /home/deadnews/my/bin/ReSampler/
 }
-
 
 if [[ ${make} ]]; then
     make https://github.com/jniemann66/ReSampler
