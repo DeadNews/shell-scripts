@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 for F in "$@"; do
-
     ch_1="${F:h}/chapters/${F:t:r}.txt"
     ch_2="${F:h:h}/out/chapters/${F:t:r}.txt"
 
@@ -20,7 +19,6 @@ for F in "$@"; do
         tagTitle=${title/#EP/E}
         mkvpropedit --set "title=${tagTitle}" ${F}
     fi
-
 done
 
 kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 7

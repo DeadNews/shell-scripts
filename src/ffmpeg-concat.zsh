@@ -8,7 +8,6 @@ for F in "$@"; do
     # silence_time=0.480
     # silence_time=2.100
 
-
     rate=$(mediainfo --Inform="Audio;%SamplingRate%" ${F})
     silence='/tmp/silence.aac'
     if [[ ! -f ${silence} ]]; then

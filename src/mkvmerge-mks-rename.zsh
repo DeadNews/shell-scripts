@@ -32,7 +32,6 @@ lang='eng'
 name='[MTBB]'
 # name='[YameteTomete]'
 
-
 for F in "$@"; do
     # make mks
     echo ${F:t}

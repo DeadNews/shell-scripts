@@ -9,5 +9,4 @@ for F in "$@"; do
 done
 # kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 7
 
-
 # ffprobe -v error -show_entries stream=index,codec_name,codec_type
