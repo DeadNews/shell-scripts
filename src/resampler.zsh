@@ -79,8 +79,8 @@ function resampler_func() {
 }
 
 function make() {
-    cd /home/deadnews/my/bin/
-    git clone ${1}
+    cd ~/my/bin/
+    git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     cd ${name}
 
@@ -90,13 +90,13 @@ function make() {
     g++ -pthread -std=gnu++11 main.cpp ReSampler.cpp conversioninfo.cpp -lfftw3 -lsndfile -o ReSampler -O3 -lquadmath -DUSE_QUADMATH
 
     mv ./ReSampler ../ReSamplerLib
-    rm -rf /home/deadnews/my/bin/ReSampler/
+    rm -rf ~/my/bin/ReSampler/
 }
 
 if [[ ${make} ]]; then
     make https://github.com/jniemann66/ReSampler
 else
-    resampler='/home/deadnews/my/bin/ReSamplerLib'
+    resampler="${HOME}/my/bin/ReSamplerLib"
     resampler_opts=(
         -b 16
         --showStages

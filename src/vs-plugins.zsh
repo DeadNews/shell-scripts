@@ -7,34 +7,34 @@ CXXFLAGS="${CFLAGS}"
 MAKEFLAGS="-j4"
 
 # folders
-BIN='/home/deadnews/my/bin/'
+BIN="${HOME}/my/bin/"
 cd ${BIN}
-rootDir="${PWD}/vapoursynth-plugins"
-pluginsDir="${rootDir}/plugins"
-packagesDir="${rootDir}/packages"
+root_dir="${PWD}/vapoursynth-plugins"
+plugins_dir="${root_dir}/plugins"
+packages_dir="${root_dir}/packages"
 sysPlugins="${PWD}/vpy-plugins"
 sysPackages="${PWD}/vpy-packages"
 
-mkdir -p "${pluginsDir}"
-mkdir -p "${packagesDir}"
-cd "${rootDir}"
+mkdir -p "${plugins_dir}"
+mkdir -p "${packages_dir}"
+cd "${root_dir}"
 
-#make: meson ninja boost
+# make dep: meson ninja boost
 function meson-build() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     name=${name%}
     cd ${name}
     meson build
     ninja -C build
-    mv ./build/*.so "${pluginsDir}"
+    mv ./build/*.so "${plugins_dir}"
     echo ''
 }
 
 function meson-cd2vpy-build() {
-    cd "${rootDir}"
-    git clone -b ${2} ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1 -b ${2}
     name=${1#https://github.com/*/}
     name=${name%}
     if [[ -d ${name}/VapourSynth ]]; then
@@ -44,49 +44,48 @@ function meson-cd2vpy-build() {
     fi
     meson build
     ninja -C build
-    mv ./build/*.so "${pluginsDir}"
+    mv ./build/*.so "${plugins_dir}"
     echo ''
 }
 
 function py-copy() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://*github.com/*/}
     name=${name%}
-    mv ./${name}/*.py "${packagesDir}"
+    mv ./${name}/*.py "${packages_dir}"
     echo ''
 }
 
 function py-copy-name() {
-    cd "${rootDir}"
+    cd "${root_dir}"
     if [[ ! ${3} ]]; then
-        git clone ${1}
+        git clone ${1} --depth 1
     else
-        git clone ${1} --branch ${3}
+        git clone ${1} --depth 1 -b ${3}
     fi
     name=${1#https://*github.com/*/}
     name=${name%}
-    mv ./${name}/${2} "${packagesDir}"
+    mv ./${name}/${2} "${packages_dir}"
     echo ''
 }
 
 # function py-copy-folder() {
-#     cd "${rootDir}"
-#     git clone ${1}
+#     cd "${root_dir}"
+#     git clone ${1} --depth 1
 #     name=${1#https://*github.com/*/}
 #     name=${name%}
-#     mv ./${name}/${2} "${packagesDir}"
+#     mv ./${name}/${2} "${packages_dir}"
 #     echo ''
 # }
 
-#make: yasm essential nasm
+# make dep: yasm essential nasm
 function x265-build() {
     cd ${BIN}
-    git clone https://bitbucket.org/multicoreware/x265_git
+    git clone https://bitbucket.org/multicoreware/x265_git --depth 1 -b ${1}
     cd x265_git
-    git checkout ${1}
 
-    # git apply /home/deadnews/my/downloads/x265-x265-1-of-2-Histogram-based-scenecut-detection.patch
+    # git apply ~/my/downloads/x265-x265-1-of-2-Histogram-based-scenecut-detection.patch
 
     cd build/linux
     cmake ../../source -D HIGH_BIT_DEPTH=ON
@@ -98,9 +97,8 @@ function x265-build() {
 
 function x265-build-mod() {
     cd ${BIN}
-    git clone https://github.com/msg7086/x265-Yuuki-Asuna
+    git clone https://github.com/msg7086/x265-Yuuki-Asuna --depth 1 -b ${1}
     cd x265-Yuuki-Asuna
-    git checkout ${1}
 
     cd build/linux
     cmake ../../source -D HIGH_BIT_DEPTH=ON
@@ -111,122 +109,122 @@ function x265-build-mod() {
 }
 
 function autotools-build() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     name=${name%}
     cd ${name}
     ./autogen.sh
     ./configure --extra-cxxflags="${CXXFLAGS}"
     make
-    mv ./.libs/*.so "${pluginsDir}"
+    mv ./.libs/*.so "${plugins_dir}"
     echo ''
 }
 
 function autotools-bilateral() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     name=${name%}
     cd ${name}
     ./configure --extra-cxxflags="${CXXFLAGS}"
     make
-    mv ./*.so "${pluginsDir}"
+    mv ./*.so "${plugins_dir}"
     echo ''
 }
 
 function descale-build() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     name=${name%}
     cd ${name}
     meson build
     ninja -C build
-    mv ./build/*.so "${pluginsDir}"
-    mv ./*.py "${packagesDir}"
+    mv ./build/*.so "${plugins_dir}"
+    mv ./*.py "${packages_dir}"
     echo ''
 }
 
 function znedi3-build() {
-    cd "${rootDir}"
-    git clone --recursive ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1 --recursive
     name=${1#https://github.com/*/}
     name=${name%}
     cd ${name}
     make X86=1
-    mv vsznedi3.so "${pluginsDir}"
-    mv nnedi3_weights.bin "${pluginsDir}"
+    mv vsznedi3.so "${plugins_dir}"
+    mv nnedi3_weights.bin "${plugins_dir}"
     echo ''
 }
 
 function fmtconv-build() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     name=${name%}
     cd "${name}/build/unix"
     ./autogen.sh
     ./configure --extra-cxxflags="${CXXFLAGS}"
     make
-    mv ./.libs/*.so "${pluginsDir}"
+    mv ./.libs/*.so "${plugins_dir}"
     echo ''
 }
 
 function f3kdb-build() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     name=${name%}
     cd ${name}
     ./waf configure
     ./waf build
-    mv ./build/*.so "${pluginsDir}"
+    mv ./build/*.so "${plugins_dir}"
     echo ''
 }
 
 function neo-f3kdb-build() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     name=${name%}
     cd ${name}
     mkdir -p build && cd build
     cmake ../
     cmake --build .
-    mv ../build/*.so "${pluginsDir}"
+    mv ../build/*.so "${plugins_dir}"
     echo ''
 }
 
 function cmake-build() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     name=${name%}
     cd ${name}
     mkdir -p build && cd build
     cmake ../
     cmake --build .
-    mv ../x64/*.so "${pluginsDir}"
+    mv ../x64/*.so "${plugins_dir}"
     echo ''
 }
 
-#make: rust
+# make dep: rust
 function cargo-build() {
-    cd "${rootDir}"
-    git clone ${1}
+    cd "${root_dir}"
+    git clone ${1} --depth 1
     name=${1#https://*/*/}
     name=${name%}
     cd ${name}
     cargo build --release
-    mv ./target/release/*.so "${pluginsDir}"
+    mv ./target/release/*.so "${plugins_dir}"
     echo ''
 }
 
 function py-dl() {
-    cd "${rootDir}"
+    cd "${root_dir}"
     wget ${1}
-    mv ./*.py "${packagesDir}"
+    mv ./*.py "${packages_dir}"
     echo ''
 }
 
@@ -295,9 +293,9 @@ function vpy-build() {
     py-dl https://www.dropbox.com/s/2fw0mm0mswng234/HardAA.py
     py-dl https://www.dropbox.com/s/tmohm7qm7lb3q1p/insaneAA.py
 
-    cp -R ${pluginsDir}/* ${sysPlugins}
-    cp -R ${packagesDir}/* ${sysPackages}
-    rm -rf ${rootDir}
+    cp -R ${plugins_dir}/* ${sysPlugins}
+    cp -R ${packages_dir}/* ${sysPackages}
+    rm -rf ${root_dir}
 }
 
 function test-build() {
@@ -306,10 +304,10 @@ function test-build() {
 }
 
 function system-build() {
-    rm /home/deadnews/.cache/yay/vapoursynth-git/vapoursynth-git-*.pkg.tar.zst
+    rm ~/.cache/yay/vapoursynth-git/vapoursynth-git-*.pkg.tar.zst
     yes | yay -S --rebuildtree vapoursynth-git
 
-    rm /home/deadnews/my/bin/vpy-plugins/vapoursynth-git-*.pkg.tar.zst
+    rm ~/my/bin/vpy-plugins/vapoursynth-git-*.pkg.tar.zst
     cp ~/.cache/yay/vapoursynth-git/*.pkg.tar.zst ~/my/bin/vpy-plugins/
 }
 

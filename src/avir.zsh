@@ -4,7 +4,7 @@ for F in "$@"; do
     mkdir -p "${F:h}/avir"
     resized="${F:h}/avir/${F:t:r}-fit-496x696.png"
 
-    /home/deadnews/my/bin/avir --fit --dither --algparams=ulr ${F} ${resized} 496x696
+    ~/my/bin/avir --fit --dither --algparams=ulr ${F} ${resized} 496x696
 
     # /usr/bin/convert -border 2 -bordercolor '#534BA1' -quality 100% -strip -interlace Plane \
     #   -sampling-factor 4:2:0 "${resized}" "${resized:r}.jpg"

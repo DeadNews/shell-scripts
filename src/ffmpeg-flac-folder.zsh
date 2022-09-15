@@ -11,7 +11,7 @@ jpgoptim() {
 }
 
 avair() {
-    /home/deadnews/my/bin/avir --fit --dither -q 98 ${1} ${2} 500x500
+    ~/my/bin/avir --fit --dither -q 98 ${1} ${2} 500x500
 }
 
 jpg_convert() {
