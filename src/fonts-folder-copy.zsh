@@ -2,7 +2,7 @@
 
 function fonts-ln {
   if [[ -f "${1}" ]]; then
-    f_dir=~/.fonts/${2}
+    f_dir=~/.local/share/fonts/${2}
     mkdir -p ${f_dir}
     ln -s --target-directory=${f_dir} ${1}
     # cp ${1}  "${f_dir}/${1:t}"

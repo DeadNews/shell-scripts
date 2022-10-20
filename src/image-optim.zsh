@@ -21,5 +21,5 @@ env_parallel --eta main ::: "$@"
 
 kdialog --title "image-optim" --passivepopup "${1:h:t} done" 7
 
-# ~/my/scripts/zsh/image-optim.zsh --png_mod --level 7  $F
-# find . -type f -print0 | xargs -0 ~/my/scripts/zsh/image-optim.zsh
+# ~/git/zsh-scripts/src/image-optim.zsh --png_mod --level 7 $F
+# find . -type f -print0 | xargs -0 ~/git/zsh-scripts/src/image-optim.zsh

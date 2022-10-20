@@ -7,7 +7,7 @@ for F in "$@"; do
 
     if [[ ! -f ${out_pic} ]]; then
         mkdir -p "${F:h}/plotbitrate"
-        ~/my/bin/site-packages-edited/plotbitrate.py --stream video -o ${out_pic} ${F}
+        ~/git/plotbitrate/plotbitrate.py --stream video -o ${out_pic} ${F}
     fi
 done
 

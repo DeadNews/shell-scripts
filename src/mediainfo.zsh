@@ -8,7 +8,6 @@ function ffprobe-info() {
 }
 
 for F in "$@"; do
-    # mkdir -p "/tmp/${F:h:t}"
     tmp_dir=$(mktemp -d)
     tmpfile="${tmp_dir}/${F:t:r}.${F:t:e}.log"
 
@@ -21,6 +20,6 @@ for F in "$@"; do
         mediainfo ${F} >${tmpfile}
     fi
 
-    # kate -s Default ${tmpfile}
-    subl ${tmpfile}
+    kwrite ${tmpfile}
+    unlink ${tmpfile}
 done
