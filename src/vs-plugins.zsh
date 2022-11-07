@@ -85,7 +85,7 @@ function x265-build() {
     git clone https://bitbucket.org/multicoreware/x265_git --depth 1 -b ${1}
     cd x265_git
 
-    # git apply ~/my/downloads/x265-x265-1-of-2-Histogram-based-scenecut-detection.patch
+    # git apply ~/downloads/x265-x265-1-of-2-Histogram-based-scenecut-detection.patch
 
     cd build/linux
     cmake ../../source -D HIGH_BIT_DEPTH=ON
