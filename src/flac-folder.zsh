@@ -6,7 +6,7 @@ for H in "$@"; do
     find . -type f -iname '*.png' -exec mogrify -format jpg -quality 99% {} +
     find . -type f -iname '*.png' -exec rm {} +
     find . -type f -iname '*.jpg' -exec jpegoptim {} +
-    find . -type f -iname '*.jpg' -exec mv -vn {} cover.jpg \;
+    find . -type f -iname '*.jpg' -execdir mv -vn {} cover.jpg \;
 
     find . -type f -iname '*.flac' -exec metaflac --remove --block-number=3 {} +
     # find . -type f -iname '*.flac' -exec parallel --jobs 50% flac --best --force ::: {} +
