@@ -125,5 +125,4 @@ else
     rm -R ${tmp_dir}
 
     kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 5
-
 fi

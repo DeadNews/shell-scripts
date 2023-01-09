@@ -232,22 +232,21 @@ function vpy-build() {
     cargo-build https://git.kageru.moe/kageru/adaptivegrain
     cargo-build https://github.com/End-of-Eternity/vs-average
 
-    meson-build https://github.com/vapoursynth/vs-removegrain
-    meson-build https://github.com/vapoursynth/vs-imwri
-    meson-build https://github.com/vapoursynth/vs-miscfilters-obsolete
     meson-build https://github.com/vapoursynth/subtext
     meson-build https://github.com/vapoursynth/vivtc
+    meson-build https://github.com/vapoursynth/vs-imwri
+    meson-build https://github.com/vapoursynth/vs-miscfilters-obsolete
+    meson-build https://github.com/vapoursynth/vs-removegrain
 
-    meson-cd2vpy-build https://github.com/AkarinVS/L-SMASH-Works 'ffmpeg-4.5'
-    # meson-cd2vpy-build https://github.com/AmusementClub/ReduceFlicker
     # meson-build https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Bwdif
     # meson-build https://github.com/HomeOfVapourSynthEvolution/VapourSynth-DCTFilter
     # meson-build https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Deblock
     # meson-build https://github.com/Khanattila/KNLMeansCL
     # meson-build https://github.com/Kiyamou/VapourSynth-JincResize
     # meson-build https://github.com/Lypheo/vs-placebo
+    # meson-cd2vpy-build https://github.com/AmusementClub/ReduceFlicker
+    meson-build https://github.com/Beatrice-Raws/VapourSynth-TColorMask
     meson-build https://github.com/DeadNews/EdgeFixer
-    meson-build https://github.com/DeadNews/VapourSynth-TColorMask
     meson-build https://github.com/dubhater/vapoursynth-awarpsharp2
     meson-build https://github.com/dubhater/vapoursynth-mvtools
     meson-build https://github.com/dubhater/vapoursynth-temporalsoften2
@@ -263,35 +262,35 @@ function vpy-build() {
     meson-build https://github.com/HomeOfVapourSynthEvolution/VapourSynth-TTempSmooth
     meson-build https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Yadifmod
     meson-build https://github.com/Irrational-Encoding-Wizardry/Vapoursynth-RemapFrames
+    meson-cd2vpy-build https://github.com/AkarinVS/L-SMASH-Works 'ffmpeg-4.5'
 
-    descale-build https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale
-    autotools-build https://github.com/dubhater/vapoursynth-nnedi3
-    autotools-build https://github.com/dubhater/vapoursynth-histogram
-    autotools-bilateral https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Bilateral
-    znedi3-build https://github.com/sekrit-twc/znedi3
-    fmtconv-build https://github.com/EleonoreMizo/fmtconv
-    f3kdb-build https://github.com/SAPikachu/flash3kyuu_deband
     # neo-f3kdb-build https://github.com/HomeOfAviSynthPlusEvolution/neo_f3kdb
+    autotools-bilateral https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Bilateral
+    autotools-build https://github.com/dubhater/vapoursynth-histogram
+    autotools-build https://github.com/dubhater/vapoursynth-nnedi3
+    descale-build https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale
+    f3kdb-build https://github.com/SAPikachu/flash3kyuu_deband
+    fmtconv-build https://github.com/EleonoreMizo/fmtconv
+    znedi3-build https://github.com/sekrit-twc/znedi3
 
+    # py-copy https://gist.github.com/chikuzen/5005590 # easyvfr
+    # py-copy https://github.com/AmusementClub/mvsfunc/
+    # py-copy https://gitlab.com/Ututu/adptvgrnmod
+    py-copy https://gist.github.com/4re/342624c9e1a144a696c6 # nnedi3_rpow2
+    py-copy https://gist.github.com/4re/8676fd350d4b5b223ab9 # finesharp
+    py-copy https://github.com/DeadNews/vs-insane-aa
     py-copy https://github.com/dubhater/vapoursynth-adjust
+    py-copy https://github.com/fdar0536/VapourSynth-Contra-Sharpen-mod
     py-copy https://github.com/HomeOfVapourSynthEvolution/havsfunc
+    py-copy https://github.com/HomeOfVapourSynthEvolution/mvsfunc
     py-copy https://github.com/HomeOfVapourSynthEvolution/nnedi3_resample
     py-copy https://github.com/Irrational-Encoding-Wizardry/fvsfunc
     py-copy https://github.com/WolframRhodium/muvsfunc
-    py-copy https://gist.github.com/4re/342624c9e1a144a696c6 # nnedi3_rpow2
-    py-copy https://github.com/fdar0536/VapourSynth-Contra-Sharpen-mod
     py-copy-name https://github.com/Irrational-Encoding-Wizardry/kagefunc 'kagefunc.py'
-    py-copy-name https://github.com/Irrational-Encoding-Wizardry/vsutil 'vsutil'
     py-copy-name https://github.com/Irrational-Encoding-Wizardry/lvsfunc 'lvsfunc'
-    py-copy https://github.com/HomeOfVapourSynthEvolution/mvsfunc
-    # py-copy https://github.com/AmusementClub/mvsfunc/
-    # py-copy https://github.com/Beatrice-Raws/VapourSynth-insaneAA
-    # py-copy https://gist.github.com/chikuzen/5005590 # easyvfr
-    # py-copy https://gitlab.com/Ututu/adptvgrnmod
-    py-copy https://gist.github.com/4re/8676fd350d4b5b223ab9 # finesharp
+    py-copy-name https://github.com/Irrational-Encoding-Wizardry/vsutil 'vsutil'
 
     py-dl https://www.dropbox.com/s/2fw0mm0mswng234/HardAA.py
-    py-dl https://www.dropbox.com/s/tmohm7qm7lb3q1p/insaneAA.py
 
     cp -R ${plugins_dir}/* ${sysPlugins}
     cp -R ${packages_dir}/* ${sysPackages}

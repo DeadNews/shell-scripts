@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
-zparseopts -D -E -F -A opts -- -png_mod -level:
+zparseopts -D -E -F -A opts -- -png-mod -level:
 source $(which env_parallel.zsh)
 
 main() {
     mime="$(file -b --mime-type ${1})"
 
     if [[ ${mime} == "image/png" ]]; then
-        if [[ "${(k)opts[--png_mod]}" ]]; then
+        if [[ "${(k)opts[--png-mod]}" ]]; then
             optipng -strip all -o${opts[--level]:='7'} ${1}
         else
             cwebp -m 6 -z 9 -lossless ${1} -o "${1:r}.webp" && unlink ${1}
@@ -21,5 +21,5 @@ env_parallel --eta main ::: "$@"
 
 kdialog --title "image-optim" --passivepopup "${1:h:t} done" 7
 
-# ~/git/zsh-scripts/src/image-optim.zsh --png_mod --level 7 $F
+# ~/git/zsh-scripts/src/image-optim.zsh --png-mod --level 7 $F
 # find . -type f -print0 | xargs -0 ~/git/zsh-scripts/src/image-optim.zsh
