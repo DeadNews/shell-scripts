@@ -11,7 +11,13 @@ repos:
       - id: trailing-whitespace
 
   # - repo: https://github.com/scop/pre-commit-shfmt
-  #   rev: v3.5.1-1
+  #   rev: v3.6.0-1
   #   hooks:
   #     - id: shfmt
   #       args: [-w, -s, -i, "4"]
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.20.0
+    hooks:
+      - id: check-dependabot
+      - id: check-github-workflows
