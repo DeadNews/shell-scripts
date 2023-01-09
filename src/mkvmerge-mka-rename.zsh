@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 zparseopts -D -fix=fix
 
 # lang='rus'
