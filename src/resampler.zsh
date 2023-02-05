@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
-zparseopts -D -make=make
+zparseopts -D -make=make -24bits=24bits
 
 source $(which env_parallel.zsh)
 
 function rate-info() {
-    # unset ${rate}
+    unset ${rate}
     SR=$(mediainfo --Inform="Audio;%SamplingRate%" ${1})
-    if [[ ${SR} == 44100 ]]; then
+    if [[ $((SR % 44100)) == 0 ]]; then
         rate='44100'
     elif [[ $((SR % 48000)) == 0 ]]; then
         rate='48000'
@@ -22,16 +22,15 @@ function resampler_func() {
         mkdir -p ${out_dir}
 
         rate-info ${1}
-        ${resampler} -i ${1} -o ${tmp} -r ${rate} ${resampler_opts[@]}
+        ReSampler -i ${1} -o ${tmp} -r ${rate} ${resampler_opts[@]}
 
         duration_out=$(mediainfo --Inform="Audio;%Duration/String3%" ${tmp})
         if [ "${duration_out}" != "${duration}" ]; then
             echo "${1}: ${duration} VS ${duration_out}" >>"${out_dir}/warnings.log"
-            ffmpeg -hide_banner -i ${tmp} -t ${duration} -acodec flac -compression_level 12 "${out_dir}/${1:t:r}.flac"
+            ffmpeg -hide_banner -i ${tmp} -t ${duration} -acodec flac -compression_level 0 "${out_dir}/${1:t:r}.flac"
         else
-            ffmpeg -hide_banner -i ${tmp} -acodec flac -compression_level 12 "${out_dir}/${1:t:r}.flac"
+            ffmpeg -hide_banner -i ${tmp} -acodec flac -compression_level 0 "${out_dir}/${1:t:r}.flac"
         fi
-        # ffmpeg -hide_banner -i ${tmp} -acodec flac -compression_level 12 "${out_dir}/${1:t:r}.flac"
         unlink ${tmp}
 
     elif [ "${1:e}" = "mka" ]; then
@@ -52,7 +51,7 @@ function resampler_func() {
             mkvextract ${1} tracks 0:${tmp1}
 
             rate-info ${1}
-            ${resampler} -i ${tmp1} -o ${tmp2} -r ${rate} ${resampler_opts[@]}
+            ReSampler -i ${tmp1} -o ${tmp2} -r ${rate} ${resampler_opts[@]}
             unlink ${tmp1}
 
             duration_out=$(mediainfo --Inform="Audio;%Duration/String3%" ${tmp2})
@@ -79,49 +78,48 @@ function resampler_func() {
 }
 
 function make() {
-    cd ~/my/bin/
+    tmp_dir=$(mktemp -d)
+
+    cd ${tmp_dir}
     git clone ${1} --depth 1
     name=${1#https://github.com/*/}
     cd ${name}
 
-    # AVX + FMA (>= Haswell, PileDriver):
-    # g++ -pthread -std=c++11 main.cpp ReSampler.cpp conversioninfo.cpp -lfftw3 -lsndfile -o ReSampler -O3 -DUSE_AVX -DUSE_FMA -mavx -mfma
-    # Quad Precision (experimental):
     g++ -pthread -std=gnu++11 main.cpp ReSampler.cpp conversioninfo.cpp -lfftw3 -lsndfile -o ReSampler -O3 -lquadmath -DUSE_QUADMATH
 
-    mv ./ReSampler ../ReSamplerLib
-    rm -rf ~/my/bin/ReSampler/
+    mv ./ReSampler ~/.local/bin/
+    rm -rf ${tmp_dir}
 }
 
 if [[ ${make} ]]; then
     make https://github.com/jniemann66/ReSampler
 else
-    resampler="${HOME}/my/bin/ReSamplerLib"
-    resampler_opts=(
-        -b 16
-        --showStages
-        --singleStage
-        --relaxedLPF
-        --dither
-        --ns 2
-        # --ns 0
-        --autoblank
-        --flacCompression 0
-        --mt
-    )
-
-    # # 24 bits + disable duration_out
-    # resampler_opts=(
-    #     --showStages
-    #     --singleStage
-    #     --relaxedLPF
-    #     --autoblank
-    #     --flacCompression 0
-    #     --mt
-    # )
+    if [[ ${24bits} ]]; then
+        resampler_opts=(
+            --showStages
+            --singleStage
+            --relaxedLPF
+            --autoblank
+            --flacCompression 0
+            --mt
+        )
+    else
+        resampler_opts=(
+            -b 16
+            --showStages
+            --singleStage
+            --relaxedLPF
+            --dither
+            --ns 2
+            # --ns 0
+            --autoblank
+            --flacCompression 0
+            --mt
+        )
+    fi
 
     tmp_dir=$(mktemp -d)
-    env_parallel -j 2 resampler_func ::: "$@"
+    env_parallel -j 1 resampler_func ::: "$@"
     rm -R ${tmp_dir}
 
     kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 5

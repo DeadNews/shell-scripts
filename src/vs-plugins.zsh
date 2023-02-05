@@ -7,7 +7,7 @@ CXXFLAGS="${CFLAGS}"
 MAKEFLAGS="-j4"
 
 # folders
-BIN="${HOME}/my/bin/"
+BIN="${HOME}/bin/"
 cd ${BIN}
 root_dir="${PWD}/vapoursynth-plugins"
 plugins_dir="${root_dir}/plugins"
@@ -306,8 +306,8 @@ function system-build() {
     rm ~/.cache/yay/vapoursynth-git/vapoursynth-git-*.pkg.tar.zst
     yes | yay -S --rebuildtree vapoursynth-git
 
-    rm ~/my/bin/vpy-plugins/vapoursynth-git-*.pkg.tar.zst
-    cp ~/.cache/yay/vapoursynth-git/*.pkg.tar.zst ~/my/bin/vpy-plugins/
+    rm ~/bin/vpy-plugins/vapoursynth-git-*.pkg.tar.zst
+    cp ~/.cache/yay/vapoursynth-git/*.pkg.tar.zst ~/bin/vpy-plugins/
 }
 
 # system-build

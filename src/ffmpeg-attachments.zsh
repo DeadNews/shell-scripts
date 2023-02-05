@@ -9,7 +9,6 @@ for F in "$@"; do
 done
 
 for F in "$argv[$#]"; do
-
     cd "${F:h}/fonts"
 
     # for F in *; do

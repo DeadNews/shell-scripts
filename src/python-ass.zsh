@@ -12,6 +12,3 @@ done
 ## install
 # yay -S python-click
 # pip install git+https://github.com/tp7/prass
-## help
-# prass shift -h
-# https://pysubs2.readthedocs.io/en/latest/cli.html

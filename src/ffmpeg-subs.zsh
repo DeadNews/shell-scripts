@@ -7,6 +7,7 @@ for F in "$@"; do
     # ffmpeg -hide_banner -i ${F} -codec:s "" -n
     # ffmpeg -hide_banner -dump_attachment:s "" -i ${F} -n
 done
+
 # kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 7
 
 # ffprobe -v error -show_entries stream=index,codec_name,codec_type

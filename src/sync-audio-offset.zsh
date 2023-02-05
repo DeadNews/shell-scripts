@@ -14,7 +14,7 @@ for F in "$@"; do
     good="${good_dir[-1]}/${name_short}.mka"
     out="${out_dir}/${name}.flac"
 
-    ~/my/bin/sync-audio-offset/sync-audio-tracks.sh ${bad} ${good} ${out}
+    ~/.local/bin/sync-audio-tracks.sh ${bad} ${good} ${out}
 
 done
 

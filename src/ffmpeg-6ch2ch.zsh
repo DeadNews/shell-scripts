@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 for F in "$@"; do
-
     mkdir -p "${F:h}/+stereo"
 
     bit_depth=$(mediainfo --Inform="Audio;%BitDepth%" ${F})
@@ -24,7 +23,6 @@ for F in "$@"; do
     ffmpeg -hide_banner -i ${F} \
         -map 0:a:0 -af ${af} -sample_fmt ${sample_fmt} \
         -acodec flac -compression_level ${compression_level} "${F:h}/+stereo/${F:t:r}.flac"
-
 done
 
 # https://trac.ffmpeg.org/wiki/AudioChannelManipulation#a5.1stereo

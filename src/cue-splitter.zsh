@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-# https://wiki.archlinux.org/index.php/CUE_Splitting
 for CUE in "$@"; do
     AUDIO="${CUE:r}.flac"
     DIR="${CUE:h}/flac"
@@ -13,3 +12,5 @@ for CUE in "$@"; do
     setopt +o nomatch
     cp "${CUE:h}"/*.{jpg,jpeg,png} ${DIR}
 done
+
+# https://wiki.archlinux.org/index.php/CUE_Splitting

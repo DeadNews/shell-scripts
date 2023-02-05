@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 for F in "$@"; do
-
     echo ${F:t}
     out_pic="${F:h}/plotbitrate/${F:t:r}.png"
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 for F in "$@"; do
     mkdir "${F:h}/+test"
 
@@ -9,4 +10,5 @@ for F in "$@"; do
         dwebp ${F} -o "${F:h}/+test/${F:t:r}.png"
     fi
 done
+
 # kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 7
