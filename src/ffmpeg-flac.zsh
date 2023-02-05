@@ -18,24 +18,5 @@ for F in "$@"; do
     ) &
 done
 wait
+
 # kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 7
-
-# for F in "$@"; do
-#   ARTIST=$(mediainfo --Inform="General;%Performer%" ${F})
-#   ALBUMARTIST=$(mediainfo --Inform="General;%Album/Performer%" ${F})
-#   ALBUMARTIST=${ALBUMARTIST:=${ARTIST}}
-#   DATE=$(mediainfo --Inform="General;%Recorded_Date%" ${F})
-#   YEAR=${DATE[1, 4]}
-#   ALBUM=$(mediainfo --Inform="General;%Album%" ${F})
-#   GENRE=$(mediainfo --Inform="General;%Genre%" ${F})
-#   TRACKNUMBER=$(mediainfo --Inform="General;%Track/Position%" ${F})
-#   TRACKNUMBER=$(printf "%02d" ${TRACKNUMBER})
-#   TITLE=$(mediainfo --Inform="General;%Title%" ${F})
-
-#   #   echo "${ARTIST} [${GENRE}]/${YEAR} - ${ALBUM}/${TRACKNUMBER} - ${TITLE}"
-#   echo "${ALBUMARTIST}/${DATE} — ${ALBUM}/${TRACKNUMBER} ${TITLE}"
-# done
-
-# ffmpeg -hide_banner -i ${F} -codec copy -acodec flac -compression_level 12 "/tmp/${F:t:r}.flac"
-# metaflac --remove --block-type=PICTURE --dont-use-padding ${F}
-# metaflac --import-picture-from="${F:h}/cover.jpg" ${F}

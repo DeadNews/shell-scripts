@@ -95,5 +95,3 @@ if [[ ! ${noV} ]]; then
 fi
 
 kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 7
-
-# ffprobe -v error -i ${F} -select_streams a:0 -of default=nokey=1:noprint_wrappers=1 -show_entries stream=codec_name,bits_per_raw_sample:stream_tags=language

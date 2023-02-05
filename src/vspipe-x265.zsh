@@ -62,7 +62,7 @@ function encode() {
     if [[ ${repox265} ]]; then
         x265='/usr/bin/x265'
     else
-        x265="${HOME}/my/bin/vpy-x265/x265"
+        x265="${HOME}/bin/vpy-x265/x265"
         chmod u+x ${x265}
         export LD_LIBRARY_PATH=${x265:h}
     fi

@@ -65,7 +65,6 @@ for F in "$@"; do
 
         rm -R ${tmp_dir}
     fi
-
 done
 
 kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 5

@@ -44,5 +44,4 @@ fi
 kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 5
 
 
-# ${имя_переменной#паттерн}
 # https://coder-booster.ru/learning/linux-beginners/modification-of-variables-in-bash

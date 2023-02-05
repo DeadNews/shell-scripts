@@ -3,7 +3,6 @@
 zparseopts -D -del=del -no_del_vid=no_del_vid -dir:=dir
 
 for F in "$@"; do
-
     if [[ ${dir} ]]; then
         out_dir="${dir[-1]}"
     else
@@ -19,7 +18,6 @@ for F in "$@"; do
     if [[ ${del} ]]; then
         unlink ${F}
     fi
-
 done
 
 kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 7

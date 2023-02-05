@@ -3,7 +3,6 @@
 zparseopts -D -rename=rename -year_cli=year_cli
 
 for F in "$@"; do
-
     name=${F:t:r}
     name=${name% \(*}
 

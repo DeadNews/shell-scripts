@@ -8,4 +8,5 @@ for F in "$@"; do
     echo "https:${url/*https:/}" | xclip
 
 done
+
 kdialog --title "privatebin" --passivepopup "${1:t:r} done" 3
