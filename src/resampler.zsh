@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-zparseopts -D -make=make -24bits=24bits
+zparseopts -D -make=make -hires=hires
 
 source $(which env_parallel.zsh)
 
@@ -94,7 +94,7 @@ function make() {
 if [[ ${make} ]]; then
     make https://github.com/jniemann66/ReSampler
 else
-    if [[ ${24bits} ]]; then
+    if [[ ${hires} ]]; then
         resampler_opts=(
             --showStages
             --singleStage
