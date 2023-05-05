@@ -229,7 +229,7 @@ function py-dl() {
 }
 
 function vpy-build() {
-    cargo-build https://git.kageru.moe/kageru/adaptivegrain
+    cargo-build https://github.com/Irrational-Encoding-Wizardry/adaptivegrain
     cargo-build https://github.com/End-of-Eternity/vs-average
 
     meson-build https://github.com/vapoursynth/subtext
