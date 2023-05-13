@@ -1,13 +1,13 @@
 #!/usr/bin/env zsh
 
-for conig_file in "$@"; do
-    pattern=$(grep -i "^pattern:" ${conig_file})
+for config_file in "$@"; do
+    pattern=$(grep -i "^pattern:" ${config_file})
     pattern=${pattern#*: }
-    title=$(grep -i "^title:" ${conig_file})
+    title=$(grep -i "^title:" ${config_file})
     title=${title#*: }
 
     for num in $(seq 1 1 24); do
-        episFrames=$(grep -i "^e${num}:" ${conig_file})
+        episFrames=$(grep -i "^e${num}:" ${config_file})
         if [ ${episFrames} ]; then
             episFrames=${episFrames#*: }
             pudNum=$(printf "%02d" ${num})

@@ -66,7 +66,7 @@ function encode() {
         chmod u+x ${x265}
         export LD_LIBRARY_PATH=${x265:h}
     fi
-    inoutOpts=(--y4m - --output ${output} --qpfile ${qpfile} --frames ${frames#* })
+    inputOpts=(--y4m - --output ${output} --qpfile ${qpfile} --frames ${frames#* })
     customOpts=(
         --ref ${ref[-1]:=5}
         --aq-mode ${aqmode[-1]:=3}
@@ -98,7 +98,7 @@ function encode() {
         speedOpts=(--subme 7 --max-merge 5 --no-early-skip --rect --amp --limit-refs ${limitrefs[-1]:=2})
     fi
 
-    vspipe ${1} - -c y4m | ${x265} ${inoutOpts[@]} ${customOpts[@]} ${zonesOpts[@]} ${speedOpts[@]} \
+    vspipe ${1} - -c y4m | ${x265} ${inputOpts[@]} ${customOpts[@]} ${zonesOpts[@]} ${speedOpts[@]} \
         --output-depth 10 --rc-lookahead 250 --lookahead-slices 1 --open-gop --no-fades \
         --bframes 16 --b-intra --bframe-bias 0 --b-pyramid --b-adapt 2 --rskip 0  ${tskipOpts[@]} \
         --frame-threads 1 --wpp --me 3 --merange 48 --weightp --weightb  ${hmeOpts[@]} ${cutreeOpts[@]} \
