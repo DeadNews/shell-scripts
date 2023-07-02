@@ -71,7 +71,7 @@ for F in "$@"; do
     elif [ -f "${F:h:h}/in/chapters/${name}.txt" ]; then
         chapters="${F:h:h}/in/chapters/${name}.txt"
     else
-        echo "CHAPTER01=00:00:00.000\nCHAPTER01NAME=Start" >"/tmp/0.txt"
+        echo "CHAPTER01=00:00:00.000\nCHAPTER01NAME=Start" > "/tmp/0.txt"
         chapters="/tmp/0.txt"
     fi
 

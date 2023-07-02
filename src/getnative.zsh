@@ -49,19 +49,19 @@ for F in "$@"; do
 
         cd "${tmp_dir}/results/"
         for file in *.txt; do
-            echo "${file:r} | $(grep -i "^ ${resolution}" "${tmp_dir}/results/${file}")" >>${tmp1}
+            echo "${file:r} | $(grep -i "^ ${resolution}" "${tmp_dir}/results/${file}")" >> ${tmp1}
         done
 
-        <${tmp1} | tr -d "[:blank:]" >${tmp2}
+        < ${tmp1} | tr -d "[:blank:]" > ${tmp2}
         sed -r -e 's/(.*)\|(.*)\|(.*)\|(.*)/\3\t\4\t\1/g' \
             -e 's|f_0_||' \
             -e 's|_ar_.*$||' \
             -i ${tmp2}
 
-        echo "\n-> [${F:t:r}]" >>${out}
-        sort -k 1 -g ${tmp2} | head -n 6 >>${out}
-        echo '' >>${out}
-        sort -k 2 -r -V ${tmp2} | head -n 6 >>${out}
+        echo "\n-> [${F:t:r}]" >> ${out}
+        sort -k 1 -g ${tmp2} | head -n 6 >> ${out}
+        echo '' >> ${out}
+        sort -k 2 -r -V ${tmp2} | head -n 6 >> ${out}
 
         rm -R ${tmp_dir}
     fi

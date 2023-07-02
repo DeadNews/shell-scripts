@@ -12,12 +12,12 @@ for F in "$@"; do
     tmpfile="${tmp_dir}/${F:t:r}.${F:t:e}.log"
 
     if [ "${F:e}" = "m2ts" ]; then
-        ffprobe-info ${F} >${tmpfile}
-        echo "" >>${tmpfile}
-        mediainfo ${F} >>${tmpfile}
+        ffprobe-info ${F} > ${tmpfile}
+        echo "" >> ${tmpfile}
+        mediainfo ${F} >> ${tmpfile}
 
     else
-        mediainfo ${F} >${tmpfile}
+        mediainfo ${F} > ${tmpfile}
     fi
 
     kwrite ${tmpfile}

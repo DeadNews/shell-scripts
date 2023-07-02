@@ -36,5 +36,4 @@ repos:
     rev: v3.6.0-2
     hooks:
       - id: shfmt
-        args: [-w, -s, -i, "4"]
         # exclude_types: [] # enable for zsh

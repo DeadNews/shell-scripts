@@ -1,0 +1,6 @@
+{
+  "[dockerfile]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": false
+  }
+}

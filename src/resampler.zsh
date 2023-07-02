@@ -26,7 +26,7 @@ function resampler_func() {
 
         duration_out=$(mediainfo --Inform="Audio;%Duration/String3%" ${tmp})
         if [ "${duration_out}" != "${duration}" ]; then
-            echo "${1}: ${duration} VS ${duration_out}" >>"${out_dir}/warnings.log"
+            echo "${1}: ${duration} VS ${duration_out}" >> "${out_dir}/warnings.log"
             ffmpeg -hide_banner -i ${tmp} -t ${duration} -acodec flac -compression_level 0 "${out_dir}/${1:t:r}.flac"
         else
             ffmpeg -hide_banner -i ${tmp} -acodec flac -compression_level 0 "${out_dir}/${1:t:r}.flac"
@@ -56,7 +56,7 @@ function resampler_func() {
 
             duration_out=$(mediainfo --Inform="Audio;%Duration/String3%" ${tmp2})
             if [ "${duration_out}" != "${duration}" ]; then
-                echo "${1}: ${duration} VS ${duration_out}" >>"${out_dir}/warnings.log"
+                echo "${1}: ${duration} VS ${duration_out}" >> "${out_dir}/warnings.log"
                 ffmpeg -hide_banner -i ${tmp2} -t ${duration} -acodec flac -compression_level 12 ${tmp3}
             else
                 ffmpeg -hide_banner -i ${tmp2} -acodec flac -compression_level 12 ${tmp3}
