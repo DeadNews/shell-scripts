@@ -28,12 +28,12 @@ repos:
       - id: check-renovate
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.15.9
+    rev: typos-dict-v0.10.6
     hooks:
       - id: typos
 
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.6.0-2
+    rev: v3.7.0-1
     hooks:
       - id: shfmt
         # exclude_types: [] # enable for zsh
