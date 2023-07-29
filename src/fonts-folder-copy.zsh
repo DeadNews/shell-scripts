@@ -1,20 +1,12 @@
 #!/usr/bin/env zsh
 
 function fonts-ln {
-    if [[ -f "${1}" ]]; then
-        f_dir=~/.local/share/fonts/${2}
-        mkdir -p ${f_dir}
-        ln -s --target-directory=${f_dir} ${1}
-        # cp ${1}  "${f_dir}/${1:t}"
-    fi
+    fonts_d="~/.local/share/fonts/${2}"
+    mkdir -p ${fonts_d}
+    ln -sv --target-directory=${fonts_d} ${1}
 }
-
 
 for H in "$@"; do
     cd ${H}
-    setopt +o nomatch
-    for F (**/*.otf) fonts-ln ${F:a} ${H:t}
-    for F (**/*.OTF) fonts-ln ${F:a} ${H:t}
-    for F (**/*.ttf) fonts-ln ${F:a} ${H:t}
-    for F (**/*.TTF) fonts-ln ${F:a} ${H:t}
+    find . -type f -iname '*.*tf' | while read F; do fonts-ln "${F:a}" "${H:t}"; done
 done

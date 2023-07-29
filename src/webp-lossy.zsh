@@ -11,10 +11,7 @@ function webp-convert() {
 }
 
 for H in "$@"; do
-    # setopt +o nomatch
-    # env_parallel --eta webp-convert ::: ${H}/**/*
-
-    find "${H}" -type f | env_parallel --eta webp-convert {}
+    find "${H}" -type f | env_parallel --jobs 50% --eta webp-convert {}
 done
 
 kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 7

@@ -1,15 +1,15 @@
 #!/usr/bin/env zsh
-bits_test() {
+source $(which env_parallel.zsh)
+
+bits-test() {
     bit_depth=$(mediainfo --Inform="Audio;%BitDepth%" ${1})
     sampl_rate=$(mediainfo --Inform="Audio;%SamplingRate%" ${1})
 
-    if [[ "${bit_depth}" == "24" ]]; then
+    if [[ ${bit_depth} == "24" ]]; then
         echo "${bit_depth}/${sampl_rate}: ${1}"
     fi
 }
 
 for H in "$@"; do
-    cd ${H}
-    setopt +o nomatch
-    for F (**/*.flac) bits_test ${F}
+    find "${H}" -type f -iname '*.flac' | env_parallel --jobs 50% bits-test {}
 done

@@ -17,7 +17,7 @@ main() {
     fi
 }
 
-env_parallel --eta main ::: "$@"
+env_parallel --jobs 50% --eta main ::: "$@"
 
 kdialog --title "image-optim" --passivepopup "${1:h:t} done" 7
 

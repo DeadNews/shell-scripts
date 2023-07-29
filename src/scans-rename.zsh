@@ -1,16 +1,11 @@
 #!/usr/bin/env zsh
 
 function scans-rename {
-  if [[ -f "${1}" ]]; then
-
-    mv ${1} "${2}/${1//\// - }"
-  fi
+    F="${1:2}" # remove first 2 characters
+    mv -vn ${F} "${F//\// - }"
 }
 
-
 for H in "$@"; do
-  cd ${H}
-
-  setopt +o nomatch
-  for F (**/*) scans-rename ${F} ${H}
+    cd ${H}
+    find . -type f | while read F; do scans-rename "${F}"; done
 done
