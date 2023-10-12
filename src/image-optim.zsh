@@ -7,7 +7,7 @@ main() {
 
     if [[ ${mime} == "image/png" ]]; then
         if [[ "${(k)opts[--png-mod]}" ]]; then
-            optipng -strip all -o${opts[--level]:='7'} ${1}
+            optipng -strip all -o${opts[--level]:='5'} ${1}
         else
             cwebp -m 6 -z 9 -lossless ${1} -o "${1:r}.webp" && unlink ${1}
         fi

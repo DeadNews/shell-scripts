@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-zparseopts -D -make=make -hires=hires
+zparseopts -D -make=make -hires=hires -fix_duration=fix_duration
 
 source $(which env_parallel.zsh)
 
@@ -25,7 +25,7 @@ function resampler_func() {
         ReSampler -i ${1} -o ${tmp} -r ${rate} ${resampler_opts[@]}
 
         duration_out=$(mediainfo --Inform="Audio;%Duration/String3%" ${tmp})
-        if [ "${duration_out}" != "${duration}" ]; then
+        if [ ${fix_duration} ] && [ "${duration_out}" != "${duration}" ]; then
             echo "${1}: ${duration} VS ${duration_out}" >> "${out_dir}/warnings.log"
             ffmpeg -hide_banner -i ${tmp} -t ${duration} -acodec flac -compression_level 0 "${out_dir}/${1:t:r}.flac"
         else
@@ -79,20 +79,23 @@ function resampler_func() {
 
 function make() {
     tmp_dir=$(mktemp -d)
+    repo=https://github.com/jniemann66/ReSampler
+    tag=v2.1.0
 
     cd ${tmp_dir}
-    git clone ${1} --depth 1
-    name=${1#https://github.com/*/}
+    git clone ${repo} --depth 1 -b ${tag}
+    name=${repo#https://github.com/*/}
     cd ${name}
 
     g++ -pthread -std=gnu++11 main.cpp ReSampler.cpp conversioninfo.cpp -lfftw3 -lsndfile -o ReSampler -O3 -lquadmath -DUSE_QUADMATH
 
     mv ./ReSampler ~/.local/bin/
+    ls -lh ~/.local/bin/ReSampler
     rm -rf ${tmp_dir}
 }
 
 if [[ ${make} ]]; then
-    make https://github.com/jniemann66/ReSampler
+    make
 else
     if [[ ${hires} ]]; then
         resampler_opts=(
@@ -124,3 +127,6 @@ else
 
     kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 5
 fi
+
+# Usage:
+# find . -type f -iname '*.flac' -exec ~/git/zsh-scripts/src/resampler.zsh --hires {} +
