@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=text/x-vpy
+Actions=vspipe-info
+# X-KDE-Submenu=vpy-menu
+X-KDE-Priority=TopLevel
+
+[Desktop Action vspipe-info]
+Name=vspipe-info
+Exec=konsole --new-tab --noclose -e "~/git/shell-scripts/src/vspipe-info.zsh %F"

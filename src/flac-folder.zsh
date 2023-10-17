@@ -3,7 +3,11 @@
 for H in "$@"; do
     cd ${H}
 
-    find . -type f -iname '*.flac' -execdir metaflac {} --export-picture-to=temp_cover.jpg \; -quit 2> /dev/null
+    # Extract cover.
+    find . -mindepth 1 -type d | while read d; do
+        find ${d} -type f -iname '*.flac' -execdir metaflac {} --export-picture-to=temp_cover.jpg \; -quit 2> /dev/null
+    done
+
     find . -type f -iname '*.png' -exec mogrify -format jpg -quality 99% {} +
     find . -type f -iname '*.png' -exec rm {} +
     find . -type f -iname '*.jpg' -exec jpegoptim {} +

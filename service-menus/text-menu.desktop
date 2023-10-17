@@ -1,0 +1,31 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=text/plain
+Actions=chapt2bmqpyml;chapt2bmqpyml-vc;screens-parser;re-chapters;zones-validator;mkvmerge-mks-rename
+X-KDE-Submenu=text-menu
+X-KDE-Priority=TopLevel
+
+[Desktop Action chapt2bmqpyml]
+Name=chapt2bmqpyml
+Exec=encode-utils-cli chapt2bmqpyml %F
+
+[Desktop Action chapt2bmqpyml-vc]
+Name=chapt2bmqpyml-vc
+Exec=encode-utils-cli chapt2bmqpyml -v -c %F
+
+[Desktop Action screens-parser]
+Name=screens-parser
+Exec=~/git/shell-scripts/src/screens-parser.zsh %F
+
+# [Desktop Action re-chapters]
+# Name=re-chapters
+# Exec=encode-utils-cli re-chapters -c ~/path/to/chapters_config.yaml %F
+
+[Desktop Action zones-validator]
+Name=zones-validator
+Exec=konsole --new-tab --noclose -e "~encode-utils-cli zones-validator %F"
+
+[Desktop Action mkvmerge-mks-rename]
+Name=mkvmerge-mks-rename
+Exec=~/git/shell-scripts/src/mkvmerge-mks-rename.zsh %F

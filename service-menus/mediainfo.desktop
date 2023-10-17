@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=audio/*;video/*;application/x-matroska
+Actions=mediainfo
+X-KDE-Priority=TopLevel
+
+[Desktop Action mediainfo]
+Name=mediainfo
+Exec=~/git/shell-scripts/src/mediainfo.zsh %F

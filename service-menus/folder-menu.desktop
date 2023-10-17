@@ -1,0 +1,28 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory
+Actions=flac-folder;fonts-copy;mktorrent;mktorrent-in;albumart-dl
+X-KDE-Priority=TopLevel
+X-KDE-StartupNotify=false
+X-KDE-Submenu=folder-menu
+
+[Desktop Action flac-folder]
+Exec=~/git/shell-scripts/src/flac-folder.zsh %F
+Name=flac-folder
+
+[Desktop Action mktorrent]
+Exec=~/git/shell-scripts/src/mktorrent.zsh %F
+Name=mktorrent
+
+[Desktop Action mktorrent-in]
+Exec=~/git/shell-scripts/src/mktorrent.zsh --inMkv %F
+Name=mktorrent-in
+
+[Desktop Action albumart-dl]
+Exec=~/git/shell-scripts/src/albumart-dl.zsh %F
+Name=albumart-dl
+
+[Desktop Action fonts-copy]
+Exec=~/git/shell-scripts/src/fonts-folder-copy.zsh %F
+Name=fonts-copy
