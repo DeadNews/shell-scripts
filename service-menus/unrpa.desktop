@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/x-kdeuser1
+Actions=unrpa
+X-KDE-Priority=TopLevel
+
+[Desktop Action unrpa]
+Name=unrpa
+Icon=application/x-kdeuser1
+Exec=~/git/shell-scripts/src/unrpa.zsh %F

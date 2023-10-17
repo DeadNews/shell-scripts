@@ -1,0 +1,39 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/*
+Actions=images-upload;images-upload-b;images-upload-t;image-optim;image-optim-png;getnative;getnative-detail
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=image-menu
+
+[Desktop Action images-upload]
+Name=images-upload
+Exec=images-upload-cli %F
+
+[Desktop Action images-upload-b]
+Name=images-upload-b
+Exec=images-upload-cli --bbcode %F
+
+[Desktop Action images-upload-t]
+Name=images-upload-t
+Exec=images-upload-cli --thumbnail %F
+
+[Desktop Action image-optim]
+Name=image-optim
+Icon=application/x-kdeuser1
+Exec=~/git/shell-scripts/src/image-optim.zsh %F
+
+[Desktop Action image-optim-png]
+Name=image-optim-png
+Icon=application/x-kdeuser1
+Exec=~/git/shell-scripts/src/image-optim.zsh --png-mod %F
+
+[Desktop Action getnative]
+Name=getnative
+Icon=application/x-kdeuser1
+Exec=~/git/shell-scripts/src/getnative.zsh %F
+
+[Desktop Action getnative-detail]
+Name=getnative-detail
+Icon=application/x-kdeuser1
+Exec=~/git/shell-scripts/src/getnative.zsh --detail %F

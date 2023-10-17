@@ -1,0 +1,47 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=video/x-matroska;video/mp4;application/x-kdeuser3;application/x-kdeuser6
+Actions=mkvmerge-mux;mkvmerge-mux-rename;mkvmerge-mux-rename-year;mkvextract-chapters-txt;ffmpeg-attachments;mediainfo-privatebin;mkvpropedit-chapters;ffmsindex;plotbitrate;ffmpeg-mp4
+X-KDE-Submenu=mkv-menu
+X-KDE-Priority=TopLevel
+
+[Desktop Action mkvmerge-mux]
+Name=mkvmerge-mux
+Exec=~/git/shell-scripts/src/mkvmerge-mux.zsh %F
+
+[Desktop Action mkvmerge-mux-rename]
+Name=mkvmerge-mux-rename
+Exec=~/git/shell-scripts/src/mkvmerge-mux.zsh --rename %F
+
+[Desktop Action mkvmerge-mux-rename-year]
+Name=mkvmerge-mux-rename-year
+Exec=~/git/shell-scripts/src/mkvmerge-mux.zsh --rename --year_cli %F
+
+[Desktop Action mkvextract-chapters-txt]
+Name=mkvextract-chapters-txt
+Exec=~/git/shell-scripts/src/mkvextract-chapters.zsh --format txt %F
+
+[Desktop Action ffmpeg-attachments]
+Name=ffmpeg-attachments
+Exec=~/git/shell-scripts/src/ffmpeg-attachments.zsh %F
+
+[Desktop Action mediainfo-privatebin]
+Name=mediainfo-privatebin
+Exec=~/git/shell-scripts/src/mediainfo-privatebin.zsh %F
+
+[Desktop Action mkvpropedit-chapters]
+Name=mkvpropedit-chapters
+Exec=~/git/shell-scripts/src/mkvpropedit-chapters.zsh %F
+
+[Desktop Action ffmsindex]
+Name=ffmsindex
+Exec=ffmsindex -k %F
+
+[Desktop Action plotbitrate]
+Name=plotbitrate
+Exec=~/git/shell-scripts/src/plotbitrate.zsh %F
+
+[Desktop Action ffmpeg-mp4]
+Name=ffmpeg-mp4
+Exec=~/git/shell-scripts/src/ffmpeg-mp4.zsh %F
