@@ -129,4 +129,4 @@ else
 fi
 
 # Usage:
-# find . -type f -iname '*.flac' -exec ~/git/zsh-scripts/src/resampler.zsh --hires {} +
+# find . -type f -iname '*.flac' -exec ~/git/shell-scripts/src/resampler.zsh --hires {} +
