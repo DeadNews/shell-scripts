@@ -1,4 +1,7 @@
 #!/usr/bin/env zsh
+# Usage:
+# find . -type f -iname '*.flac' -exec ~/git/shell-scripts/src/resampler.zsh --hires {} +
+
 zparseopts -D -make=make -hires=hires -fix_duration=fix_duration
 
 source $(which env_parallel.zsh)
@@ -127,6 +130,3 @@ else
 
     kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 5
 fi
-
-# Usage:
-# find . -type f -iname '*.flac' -exec ~/git/shell-scripts/src/resampler.zsh --hires {} +

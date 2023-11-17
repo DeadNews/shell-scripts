@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 zparseopts -D -good_dir:=good_dir
 
 for F in "$@"; do

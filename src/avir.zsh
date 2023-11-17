@@ -24,4 +24,5 @@ for F in "$@"; do
 
     unlink ${resized}
 done
+
 # kdialog --title "avair" --passivepopup "${1:h:h:t} done" 7

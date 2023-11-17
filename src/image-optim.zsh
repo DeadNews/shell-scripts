@@ -1,4 +1,8 @@
 #!/usr/bin/env zsh
+# Usage:
+# ~/git/shell-scripts/src/image-optim.zsh --png-mod --level 7 $F
+
+
 zparseopts -D -E -F -A opts -- -png-mod -level:
 source $(which env_parallel.zsh)
 
@@ -20,5 +24,3 @@ main() {
 env_parallel --jobs 50% --eta main ::: "$@"
 
 kdialog --title "image-optim" --passivepopup "${1:h:t} done" 7
-
-# ~/git/shell-scripts/src/image-optim.zsh --png-mod --level 7 $F

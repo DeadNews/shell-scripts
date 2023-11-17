@@ -24,7 +24,3 @@ for F in "$@"; do
 
 done
 kdialog --title "mkvmerge" --passivepopup "${1:h:t} done" 7
-
-# --title 'EP01 «oooo»'
-
-# https://github.com/sheldonkwoodward/pymkv/wiki

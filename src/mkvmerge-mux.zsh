@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 zparseopts -D -rename=rename -year_cli=year_cli
 
 for F in "$@"; do
@@ -122,4 +121,5 @@ for F in "$@"; do
     fi
 
 done
+
 kdialog --title "${0:t:r}" --passivepopup "${1:h:t} done" 7

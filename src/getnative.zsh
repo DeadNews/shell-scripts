@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 zparseopts -D -detail=detail
 
 for F in "$@"; do

@@ -1,4 +1,7 @@
 #!/usr/bin/env zsh
+# Usage:
+# src/screens-parser.zsh /path/to/screens.txt
+# --offset 24
 
 for config_file in "$@"; do
     pattern=$(grep -i "^pattern:" ${config_file})
@@ -17,6 +20,3 @@ for config_file in "$@"; do
         fi
     done
 done
-
-# usage: /path/to/screens-parser.zsh '/path/to/screens.txt'
-# --offset 24

@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 for F in "$@"; do
-
     silence_time=1
     # silence_time=0.042
     # silence_time=0.001
@@ -18,6 +17,7 @@ for F in "$@"; do
     ffmpeg -hide_banner -i concat:"${silence}|${F}" -codec copy "${F:h}/combined/${F:t:r} [${silence_time}+].aac"
 
 done
+
 unlink ${silence}
 
 # https://ubuntugeeks.com/questions/381072/add-1-second-of-silence-to-audio-through-ffmpeg

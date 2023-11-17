@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 for F in "$@"; do
     name=${F:t:r}
     name=${name% \(*}

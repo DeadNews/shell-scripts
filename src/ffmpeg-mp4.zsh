@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-
 zparseopts -D -del=del -no_del_vid=no_del_vid -dir:=dir
 
 for F in "$@"; do
