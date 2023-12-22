@@ -4,7 +4,7 @@ for H in "$@"; do
     cd ${H}
 
     # Extract cover.
-    find . -mindepth 1 -type d | while read d; do
+    find . -mindepth 0 -type d | while read d; do
         find ${d} -type f -iname '*.flac' -execdir metaflac {} --export-picture-to=temp_cover.jpg \; -quit 2> /dev/null
     done
 
