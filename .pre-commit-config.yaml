@@ -28,7 +28,7 @@ repos:
       - id: check-renovate
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.16.25
+    rev: v1.17.1
     hooks:
       - id: typos
 
