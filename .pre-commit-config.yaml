@@ -41,4 +41,4 @@ repos:
     rev: v3.6.0-2
     hooks:
       - id: shfmt
-        # exclude_types: [] # enable for zsh
+        # exclude_types: [] # enable for zsh files

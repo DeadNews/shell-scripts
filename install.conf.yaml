@@ -5,4 +5,4 @@
       exclude: ["*/README.md"]
 
 - link:
-    ~/.local/share/kservices5: service-menus
+    ~/.local/share/kio/servicemenus: service-menus
