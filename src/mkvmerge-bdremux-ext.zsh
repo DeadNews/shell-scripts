@@ -12,7 +12,7 @@ function ffmpeg_extractor() {
     elif [[ ${codec} == 'dts' ]] || [[ ${codec} == 'dtsdts' ]]; then
         codec='DTS-HDMA'
     elif [[ ${codec} == 'truehd' ]] || [[ ${codec} == 'truehdtruehd' ]]; then
-        codec='TrueHD'
+        codec='TrueHAD'
     elif [[ ${codec} == 'ac3' ]]; then
         codec='AC3'
     fi

@@ -9,14 +9,14 @@ lang='jpn'
 # name=''
 # name='[BD]'
 # name='[WEB]'
-# name='TrueHD->FLAC'
+# name='TrueHAD->FLAC'
 # name='[crunchyroll]'
 # name='[Wakanim]'
 # name='[HiDive]'
 # name='[Funimation]'
 # name='[AdultSwim]'
 # name='[MC_Entertainment]'
-name='TrueHD->FLAC16'
+name='TrueHAD->FLAC16'
 
 if [[ ! ${fix} ]]; then
     for F in "$@"; do

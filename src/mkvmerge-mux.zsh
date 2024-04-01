@@ -116,7 +116,7 @@ for F in "$@"; do
             --language 0:${lang} --track-name "0:${audioName:=${FormatA}}" ${audioFile} --track-order 0:0,1:0 --chapters ${chapters} --title "${tagTitle}"
     else
         mkvmerge --output ${output} --no-audio --language 0:${lang} --track-name "0:${SourceType} by DeadNews" ${F} \
-            --language 0:${lang} --track-name "0:TrueHD->FLAC16" ${audioFile} --language 0:${lang2} --track-name "0:TrueHD->FLAC16" ${audioFile_2} \
+            --language 0:${lang} --track-name "0:TrueHAD->FLAC16" ${audioFile} --language 0:${lang2} --track-name "0:TrueHAD->FLAC16" ${audioFile_2} \
             --track-order 0:0,1:0,2:0 --chapters ${chapters} --title "${tagTitle}"
     fi
 
