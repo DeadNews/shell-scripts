@@ -1,15 +1,14 @@
-.PHONY: all clean test checks
+.PHONY: all clean test default dotbot install checks pc
+
+default: dotbot
 
 dotbot:
 	dotbot -c install.conf.yaml
 
-git-pull:
-	src/git-pull.zsh
-
-pc-install:
+install:
 	pre-commit install
 
-checks: pc-run
+checks: pc
 
-pc-run:
+pc:
 	pre-commit run -a

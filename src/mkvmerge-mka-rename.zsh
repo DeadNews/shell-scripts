@@ -10,12 +10,6 @@ lang='jpn'
 # name='[BD]'
 # name='[WEB]'
 # name='TrueHD->FLAC'
-# name='[crunchyroll]'
-# name='[Wakanim]'
-# name='[HiDive]'
-# name='[Funimation]'
-# name='[AdultSwim]'
-# name='[MC_Entertainment]'
 name='TrueHD->FLAC16'
 
 if [[ ! ${fix} ]]; then
