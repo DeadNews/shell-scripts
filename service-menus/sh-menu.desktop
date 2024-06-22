@@ -2,9 +2,9 @@
 Type=Service
 ServiceTypes=KonqPopupMenu/Plugin
 MimeType=application/x-shellscript
-Actions=run-renpy
+Actions=renpy-run
 X-KDE-Priority=TopLevel
 
-[Desktop Action run-renpy]
+[Desktop Action renpy-run]
 Name=run-renpy
-Exec=~/git/shell-scripts/src/run-renpy.zsh %F
+Exec=~/git/shell-scripts/src/renpy-run.zsh %F
