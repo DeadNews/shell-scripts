@@ -9,6 +9,5 @@ install:
 	pre-commit install
 
 checks: pc
-
 pc:
 	pre-commit run -a
