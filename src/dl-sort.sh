@@ -12,10 +12,10 @@ fd . "$downloads" -t f --max-depth 1 | while read -r F; do
         duration=$((duration / 1000)) # Convert to seconds
 
         if ((duration > 180)); then # Longer than 3 minutes
-            # mv "$F" "$downloads/movies/"
+            mv "$F" "$downloads/movies/"
             echo "Moved to Movies: '$F'"
         else
-            # mv "$F" "$downloads/videos/"
+            mv "$F" "$downloads/videos/"
             echo "Moved to Videos: '$F'"
         fi
     fi
