@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 function scans-rename {
     F="${1:2}" # remove first 2 characters

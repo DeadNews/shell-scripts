@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 function ffprobe-info() {
     ffprobe -show_entries stream=index,codec_type:stream_tags=language -of compact ${1} 2>&1 | {

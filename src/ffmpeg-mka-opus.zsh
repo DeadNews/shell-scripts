@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 function _opus_mka() {
     tmp="${tmp_dir}/${F:t:r}.opus"

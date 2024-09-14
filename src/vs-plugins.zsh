@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 # flags
 CPPFLAGS="-D_FORTIFY_SOURCE=2"

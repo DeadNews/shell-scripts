@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 underline=$(tput smul)
 reset=$(tput sgr0)

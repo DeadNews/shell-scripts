@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 fd . "$HOME/music/" -e lrc | while read -r F; do
     # Check if the file content is exactly "[au: instrumental]"

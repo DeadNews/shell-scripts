@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 for F in "$@"; do
     time_shift='+1s'

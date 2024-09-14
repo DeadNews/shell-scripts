@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 V='127'
-
 tmp_dir=$(mktemp -d)
 
 for F in "$@"; do

@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 zparseopts -D -E -F -A opts -- q:
 source $(which env_parallel.zsh)
 

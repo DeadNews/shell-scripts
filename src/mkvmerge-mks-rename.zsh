@@ -1,10 +1,9 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 lang='eng'
-# lang='rus'
 
 name='[BD]'
-# name='[crunchyroll]'
 
 for F in "$@"; do
     # make mks

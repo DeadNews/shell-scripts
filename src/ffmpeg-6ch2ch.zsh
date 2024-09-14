@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 for F in "$@"; do
     mkdir -p "${F:h}/+stereo"

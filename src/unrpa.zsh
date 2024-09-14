@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 for F in "$@"; do
     unrpa -mp ~/pictures/unrpa/"${F:h:h:t}" ${F}

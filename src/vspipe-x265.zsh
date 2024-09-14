@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 zparseopts -D -no_convert=no_convert -rcloneUpload=rcUp -staticName=static -repox265=repox265 \
     -aq-strength:=aqstr -crf:=crf -qcomp:=qcomp -psy-rd:=psyrd -rdoq-level:=rdoqlvl -psy-rdoq:=psyrdoq \
     -keyint:=keyintCLI -aq-mode:=aqmode -ref:=ref -cutree=cutree -limit-refs:=limitrefs -zones:=zones \

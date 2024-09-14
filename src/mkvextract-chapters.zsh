@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 zparseopts -D -format:=format
 
 for F in "$@"; do

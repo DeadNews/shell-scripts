@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 for H in "$@"; do
     fonts_dir="${HOME}/.local/share/fonts/${H:t}"

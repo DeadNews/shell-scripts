@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 zparseopts -D -noA=noA -noV=noV
 
 function ffmpeg_extractor() {
