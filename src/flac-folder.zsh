@@ -1,11 +1,12 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 for H in "$@"; do
-    cd ${H}
+    cd "${H}"
 
     # Extract cover.
-    find . -mindepth 0 -type d | while read d; do
-        find ${d} -type f -iname '*.flac' -execdir metaflac {} --export-picture-to=temp_cover.jpg \; -quit 2> /dev/null
+    find . -mindepth 0 -type d | while read -r D; do
+        find "${D}" -type f -iname '*.flac' -execdir metaflac {} --export-picture-to=temp_cover.jpg \; -quit 2> /dev/null
     done
 
     find . -type f -iname '*.png' -exec mogrify -format jpg -quality 99% {} +

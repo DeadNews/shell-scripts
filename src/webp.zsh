@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-
+set -euo pipefail
 for F in "$@"; do
     mkdir "${F:h}/+test"
 

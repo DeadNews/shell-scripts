@@ -30,7 +30,7 @@ repos:
       - id: check-renovate
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.24.1
+    rev: v1.24.5
     hooks:
       - id: typos
 
@@ -40,7 +40,13 @@ repos:
       - id: checkmake
 
   - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.8.0-1
+    rev: v3.9.0-1
     hooks:
       - id: shfmt
         # exclude_types: [] # enable for zsh files
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+        exclude_types: [zsh]

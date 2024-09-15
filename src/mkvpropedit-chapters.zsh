@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 for F in "$@"; do
     ch_1="${F:h}/chapters/${F:t:r}.txt"

@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 for F in "$@"; do
     bit_depth=$(mediainfo --Inform="Audio;%BitDepth%" ${F})

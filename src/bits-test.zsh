@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 source $(which env_parallel.zsh)
 
 bits-test() {

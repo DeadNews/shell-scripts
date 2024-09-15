@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefaild
 zparseopts -D -del=del -no_del_vid=no_del_vid -dir:=dir
 
 for F in "$@"; do

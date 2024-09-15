@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+set -euo pipefail
+
 for F in "$@"; do
     font-rename ${F}
 done

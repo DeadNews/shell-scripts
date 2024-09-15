@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+set -euo pipefail
+
 echo "Lossless Audio Checker 2.0.5\n" > "${1:h}/lac.log"
 
 for F in "$@"; do

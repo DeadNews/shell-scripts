@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+set -euo pipefail
+
 # Usage:
 # ~/git/shell-scripts/src/ffmpeg-cut.zsh video.mp4 --ss hh:mm:ss[.xxx] --t hh:mm:ss[.xxx]
 

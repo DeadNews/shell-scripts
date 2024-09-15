@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 zparseopts -D -good_dir:=good_dir
 
 for F in "$@"; do

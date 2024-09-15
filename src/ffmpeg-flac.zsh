@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 N=$(nproc)
 for F in "$@"; do

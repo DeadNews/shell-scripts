@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 fr="0-3000"
 # fr="13952-14317"

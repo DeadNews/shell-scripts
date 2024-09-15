@@ -1,36 +1,9 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 lang='eng'
-# lang='rus'
 
-# name='[BD]'
-# name='[crunchyroll]'
-# name='[YameteTomete]'
-# name='[YameteTomete] [signs]'
-# name='[GJM]'
-# name='[BlurayDesuYo]'
-# name='[SallySubs+DameDesuYo+LostYears]'
-# name='[SallySubs+DameDesuYo+LostYears] [signs]'
-# name='[DameDesuYo+kBaraka]'
-# name='[EveTaku+Coalgirls+Baal+SCY]'
-# name='[EveTaku+Coalgirls+Baal+SCY] [signs]'
-# name='[BlurayDesuYo+SCY]'
-# name='[BlurayDesuYo+SCY] [signs]'
-# name='[KH]'
-# name='[KH] [signs]'
-# name='[CBM]'
-# name='[Doki]'
-# name='[Nii-sama]'
-# name='[LostYears]'
-# name='[EMBER]'
-# name='[Nyanpasu]'
-# name='[DameDesuYo]'
-# name='[neoHEVC]'
-# name='[Kulot]'
-# name='[Funimation]'
-# name='[Afro]'
-name='[MTBB]'
-# name='[YameteTomete]'
+name='[BD]'
 
 for F in "$@"; do
     # make mks

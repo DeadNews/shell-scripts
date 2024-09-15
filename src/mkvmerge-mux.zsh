@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 zparseopts -D -rename=rename -year_cli=year_cli
 
 for F in "$@"; do

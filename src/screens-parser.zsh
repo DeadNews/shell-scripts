@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 # Usage:
-# src/screens-parser.zsh /path/to/screens.txt
-# --offset 24
+# src/screens-parser.zsh /path/to/screens.txt --offset 24
+
+set -euo pipefail
 
 for config_file in "$@"; do
     pattern=$(grep -i "^pattern:" ${config_file})

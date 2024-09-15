@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -euo pipefail
 
 for F in "$@"; do
     ffmpeg -hide_banner -i ${F} -codec copy "${F:r}.mkv"
