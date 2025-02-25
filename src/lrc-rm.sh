@@ -8,3 +8,6 @@ fd . "$HOME/music/" -e lrc | while read -r F; do
         echo "Removed $F"
     fi
 done
+
+# remove all .txt and .lrc files in folder
+# fd -e txt -e lrc -x rm -f

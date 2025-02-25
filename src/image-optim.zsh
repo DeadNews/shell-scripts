@@ -2,7 +2,6 @@
 # Usage:
 # ~/git/shell-scripts/src/image-optim.zsh --png-mod --level 7 $F
 
-set -euo pipefail
 zparseopts -D -E -F -A opts -- -png-mod -level:
 source $(which env_parallel.zsh)
 
