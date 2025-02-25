@@ -2,7 +2,6 @@
 # Usage:
 # find . -type f -iname '*.flac' -exec ~/git/shell-scripts/src/resampler.zsh --hires {} +
 
-set -euo pipefail
 zparseopts -D -make=make -hires=hires -fix_duration=fix_duration
 source $(which env_parallel.zsh)
 

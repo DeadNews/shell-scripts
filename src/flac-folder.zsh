@@ -15,7 +15,7 @@ for H in "$@"; do
     find . -type f -iname '*.jpg' -execdir mv -vn {} cover.jpg \;
 
     find . -type f -iname '*.flac' -exec metaflac --remove --block-type=PICTURE,PADDING --dont-use-padding {} +
-    # find . -type f -iname '*.flac' -exec parallel --jobs 50% flac --best --force ::: {} +
+    # find . -type f -iname '*.flac' -exec flac --best --force --threads=4 {} +
     find . -type f -iname '*.flac' -exec flac --best --force {} +
 done
 
