@@ -2,7 +2,7 @@
 
 > shell scripts collection, mostly for video/audio/image processing
 
-[![CI: pre-commit](https://results.pre-commit.ci/badge/github/DeadNews/shell-scripts/main.svg)](https://results.pre-commit.ci/latest/github/DeadNews/shell-scripts/main)
+[![CI: pre-commit](https://results.pre-commit.ci/badge/github/deadnews/shell-scripts/main.svg)](https://results.pre-commit.ci/latest/github/deadnews/shell-scripts/main)
 
 ## Installation
 

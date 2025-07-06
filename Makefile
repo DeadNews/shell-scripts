@@ -1,4 +1,4 @@
-.PHONY: all clean test default dotbot install checks pc
+.PHONY: all clean test default dotbot install check pc
 
 default: dotbot
 
@@ -8,6 +8,6 @@ dotbot:
 install:
 	pre-commit install
 
-checks: pc
+check: pc
 pc:
 	pre-commit run -a
